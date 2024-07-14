@@ -52,4 +52,30 @@ Dummy is temp variable used to store direction of turn required.
 -1 means rover is required to turn left
 +1 means rover is required to turn right 
 
-    	
+MOVE_TO_GOAL:
+
+Vel_msg publishes the data to motor driver for RPM required 
+```
+vel_msg = WheelRpm()
+```
+```
+if abs(distance_travelled -self.distance) < 0.5:
+        	rospy.loginfo("Goal reached!")
+        	vel_msg.vel = 0
+        	vel_msg.omega = 0
+        	self.velocity_publisher.publish(vel_msg)
+        	gps_msg = gps_data()
+        	gps_msg.latitude = self.current_latitude
+        	gps_msg.longitude = self.current_longitude
+If rover has travelled a distance near the distance which was required initially , then rover reaches the destination and stops.
+if (self.current_yaw - self.angle_to_turn) < -4:
+            	#vel_msg = WheelRpm()
+            	vel_msg.omega = 20
+            	vel_msg.vel = 0
+            	# self.velocity_publisher.publish(vel_msg)
+        	elif(self.current_yaw - self.angle_to_turn) > 4:
+            	#vel_msg = WheelRpm()
+            	vel_msg.omega = 20* (-1)
+            	vel_msg.vel= 0
+```
+The rover is oriented towards the goal by turning either clockwise or anti-clockwise based on the rover and goal alignment. Upon alignment with the goal, the rover commences moving, and the distance covered by the rover is computed by comparing the initial and current coordinates. When this distance nearly matches the initial distance between the rover and the goal, the rover halts, signifying the achievement of the goal.

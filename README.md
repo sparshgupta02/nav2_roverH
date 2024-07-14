@@ -18,3 +18,20 @@ def distance_to_goal(self):
     	self.distance_calculated = True
 ```
 
+Odometer Callback function:
+
+This function saves the initial position of rover once and then calculates the total del(x) and del(y) from the initial position.
+data.pose .pose.position.x gives the total distance traveled straight ahead 
+While data.pose.pose.position.y gives distance in perpendicular to straight direction(negative sign is for sensor data technicality since right of rover is required to be positive)
+Self.odom_self gives delta in x and y coordinates from initial position.
+```
+ def odom_callback(self, data):
+    	self.odom_self[0] = data.pose.pose.position.x
+    	self.odom_self[1] = -data.pose.pose.position.y
+    	if self.odom_initialized == False:
+        	self.initial_odom[0] = self.odom_self[0]
+        	self.initial_odom[1] = self.odom_self[1]
+        	self.odom_initialized = True
+    	self.odom_self[0] = self.odom_self[0] - self.initial_odom[0]
+    	self.odom_self[1] = self.odom_self[1] - self.initial_odom[1]
+```

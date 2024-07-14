@@ -35,3 +35,21 @@ Self.odom_self gives delta in x and y coordinates from initial position.
     	self.odom_self[0] = self.odom_self[0] - self.initial_odom[0]
     	self.odom_self[1] = self.odom_self[1] - self.initial_odom[1]
 ```
+Angle to goal function:
+```
+angle_req = math.atan2(self.goal_long - self.initial_long, self.goal_lat - self.initial_lat
+```
+Gives the angle required to face the goal 
+```
+if self.angle_to_turn < 0:
+            rotation = "left"
+            self.dummy = -1
+        elif self.angle_to_turn > 0:
+            rotation = "right"
+            self.dummy = 1
+```
+Dummy is temp variable used to store direction of turn required.
+-1 means rover is required to turn left
++1 means rover is required to turn right 
+
+    	

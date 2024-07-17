@@ -23,6 +23,7 @@ class GoToGoal():
         self.dummy = 0
         self.odom_self = [0,0]
         self.initial_odom = [0,0]
+        self.angle_req = 0
         self.a = 0
         self.initial_yaw = 0
         self.current_pitch,self.current_roll, self.current_yaw=0,0,0

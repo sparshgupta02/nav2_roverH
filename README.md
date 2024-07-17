@@ -48,7 +48,7 @@ if self.angle_to_turn < 0:
             rotation = "right"
             self.dummy = 1
 ```
-Dummy is temp variable used to store direction of turn required.
+`Dummy` is temp variable used to store direction of turn required.
 -1 means rover is required to turn left
 +1 means rover is required to turn right 
 

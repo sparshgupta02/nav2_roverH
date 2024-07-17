@@ -3,7 +3,9 @@ This repository is to store documentations
 
 ![Alt Text](flowchart.png)
 
-**Distance_to_goal:**
+# Functions used
+
+##**Distance_to_goal:**
 
 This function uses the Haversine formula to calculate the distance between initial position and goal position.
 This use GPS to get the distance only once while initiating the code.
@@ -18,7 +20,7 @@ def distance_to_goal(self):
     	self.distance_calculated = True
 ```
 
-**Odometer Callback function:**
+##**Odometer Callback function:**
 
 This function saves the initial position of rover once and then calculates the total del(x) and del(y) from the initial position.
 data.pose .pose.position.x gives the total distance traveled straight ahead 
@@ -35,7 +37,7 @@ Self.odom_self gives delta in x and y coordinates from initial position.
     	self.odom_self[0] = self.odom_self[0] - self.initial_odom[0]
     	self.odom_self[1] = self.odom_self[1] - self.initial_odom[1]
 ```
-**Angle to goal function:**
+##**Angle to goal function:**
 ```
 angle_req = math.atan2(self.goal_long - self.initial_long, self.goal_lat - self.initial_lat
 ```
@@ -52,7 +54,7 @@ if self.angle_to_turn < 0:
 -1 means rover is required to turn left
 +1 means rover is required to turn right 
 
-**MOVE_TO_GOAL:**
+##**MOVE_TO_GOAL:**
 
 Vel_msg publishes the data to motor driver for RPM required 
 ```

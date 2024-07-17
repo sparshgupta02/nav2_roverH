@@ -3,6 +3,18 @@ This repository is to store documentations
 
 ![Alt Text](flowchart.png)
 
+# Initialisation 
+
+Initializes the script as a ROS node with name `go_to_goal`.
+## Subscribers
+Subscribes to Odometer on the topic `/odometry/filtered`
+Subscribes to GPS on the topic `/gps_coordinates`
+Subscribes to IMU on the topic `/imu`
+Subscribes to Comms on the topic `/rscp_dat`
+
+## Publisher
+Publishes to topic `vel_msg`
+
 # Functions used
 
 ## **Distance_to_goal:**

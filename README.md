@@ -12,8 +12,20 @@ Initializes the script as a ROS node with name `go_to_goal`.
 - Subscribes to IMU on the topic `/imu`
 - Subscribes to Comms on the topic `/rscp_dat`
 
+
 ## Publisher
 Publishes to topic `vel_msg`
+
+## Variables used
+- `dummy` is a temporary variable used to store direction to turn in `Angle to goal` function
+- `odom_self` stores the current reading on odometer in a list [x,y]
+- `initial_odom` stores the value on odometer at the start point
+- `angle_req` is a variable in angle to goal function to signify how much to rotate from current rotation
+- `a` is a variable used in the haversine formula in distance_to_goal function
+- `initial_yaw` gives the angle reading of IMU at the start of rotation
+- `current_pitch`,`current_roll`,`current_yaw` are the angles in 3 dimensions given after processing IMU data
+- `current_latitude`,`current_longitude` is the GPS data
+- `angle_to_turn` is used to store how much to rotate totally
 
 # Functions used
 
@@ -66,7 +78,7 @@ if self.angle_to_turn < 0:
 -1 means rover is required to turn left
 +1 means rover is required to turn right 
 
-## **MOVE_TO_GOAL:**
+## **Move_to_goal:**
 
 Vel_msg publishes the data to motor driver for RPM required 
 ```

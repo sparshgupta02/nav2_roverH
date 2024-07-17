@@ -50,7 +50,7 @@ def distance_to_goal(self):
 - This function saves the initial position of rover once and then calculates the total del(x) and del(y) from the initial position.
 - `data.pose.pose.position.x` gives the total distance traveled straight ahead While `data.pose.pose.position.y` gives distance in perpendicular to straight direction(negative sign is for sensor data technicality since right of rover is required to be positive)
 - `Self.odom_self` gives delta in x and y coordinates from initial position.
-```
+``` python
  def odom_callback(self, data):
     	self.odom_self[0] = data.pose.pose.position.x
     	self.odom_self[1] = -data.pose.pose.position.y

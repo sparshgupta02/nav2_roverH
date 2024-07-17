@@ -35,7 +35,7 @@ Publishes to topic `vel_msg`
 This function uses the Haversine formula to calculate the distance between initial position and goal position.
 This use GPS to get the distance only once while initiating the code.
 
-```
+``` python
 def distance_to_goal(self):
     	a = math.pow(math.sin((self.goal_lat - self.initial_lat)*math.pi/360),2)+
             math.cos(self.goal_lat*math.pi/180)*math.cos(self.initial_lat*math.pi/180)*math.pow(math.sin((self.goal_long - self.initial_long)*math.pi/360),2)
@@ -62,11 +62,11 @@ def distance_to_goal(self):
     	self.odom_self[1] = self.odom_self[1] - self.initial_odom[1]
 ```
 ## **Angle to goal function:**
-```
+``` python
 angle_req = math.atan2(self.goal_long - self.initial_long, self.goal_lat - self.initial_lat
 ```
 Gives the angle required to face the goal 
-```
+``` python
 if self.angle_to_turn < 0:
             rotation = "left"
             self.dummy = -1
@@ -84,7 +84,7 @@ Vel_msg publishes the data to motor driver for RPM required
 ```
 vel_msg = WheelRpm()
 ```
-```
+``` python
 if abs(distance_travelled -self.distance) < 0.5:
         	rospy.loginfo("Goal reached!")
         	vel_msg.vel = 0

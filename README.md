@@ -63,7 +63,7 @@ def distance_to_goal(self):
 ```
 ## **Angle to goal function:**
 ``` python
-angle_req = math.atan2(self.goal_long - self.initial_long, self.goal_lat - self.initial_lat
+angle_req = math.atan2(self.goal_long - self.initial_long, self.goal_lat - self.initial_lat)
 ```
 Gives the angle required to face the goal 
 ``` python

@@ -27,6 +27,7 @@ Publishes to topic `vel_msg`
 - `current_latitude`,`current_longitude` is the GPS data
 - `angle_to_turn` is used to store how much to rotate totally
 
+![Alt Text](flowchart_2.jpg)
 # Functions used
 
 ## **Distance_to_goal:**

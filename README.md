@@ -104,3 +104,7 @@ if (self.current_yaw - self.angle_to_turn) < -4:
             	vel_msg.vel= 0
 ```
 The rover is oriented towards the goal by turning either clockwise or anti-clockwise based on the rover and goal alignment. Upon alignment with the goal, the rover commences moving, and the distance covered by the rover is computed by comparing the initial and current coordinates. When this distance nearly matches the initial distance between the rover and the goal, the rover halts, signifying the achievement of the goal.
+
+### Changes Made
+- in function get_angle_to_goal change variable name from `a` to `angle_req` because of repetetion of variable causing confusion.
+- In function move_to_goal , removed subtraction of intial_odom since it had already been subtracted once in odom_callback.
